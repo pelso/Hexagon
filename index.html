@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Hexagon">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>JS Bin</title>
+</head>
+<body>
+<canvas id="myCanvas" height="300" width="450" style="border: 1px solid black "></canvas>
+<script>
+	
+	var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
+    var size = 40;
+    var x = 140;
+    var y = 110;
+
+    function hexagonDraw() {
+      
+      context.beginPath();
+      context.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+
+      for (var side = 0; side < 7; side++) {
+        context.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+      }
+      
+      context.strokeStyle = 'orange';
+      context.stroke();
+      
+      }
+
+      for (var i = 0; i < 2; i++) {
+
+        hexagonDraw();
+        y = y + 80; 
+
+      }
+
+      x = x + 70;
+      y = y - 40;
+
+      for (var i = 0; i < 3; i++) {
+
+        hexagonDraw();
+        y = y - 80; 
+
+      }
+
+      x = x + 70;
+      y = y + 120;
+
+      for (var i = 0; i < 2; i++) {
+
+        hexagonDraw();
+        y = y + 80; 
+
+      }
+
+      context.fillStyle = 'orange';
+      context.fill();
+  
+
+
+
+
+
+	
+	
+	
+	</script>
+</body>
+</html>
